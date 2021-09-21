@@ -1,20 +1,11 @@
+using Duende.IdentityServer.EntityFramework.DbContexts;
+using Duende.IdentityServer.EntityFramework.Mappers;
+using Duende.IdentityServer.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-/*builder.Services.AddIdentityServer()
-     .AddConfigurationStore(options =>
-     {
-         options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
-             dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
-     })
-    .AddConfigurationStore(options =>
-    {
-        options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
-             dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
-    });*/
 
 builder.Services.AddIdentityServer()
       .AddConfigurationStore(options =>
@@ -36,13 +27,8 @@ var app = builder.Build();
 app.UseIdentityServer();
 
 
-/*using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
 {
-*//*    using (var persistedGrantDbContext = scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>())
-    {
-        persistedGrantDbContext.Database.Migrate();
-    }*//*
-
     using (var configurationDBContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>())
     {
         if (!configurationDBContext.Clients.Any())
@@ -81,6 +67,6 @@ app.UseIdentityServer();
         }
 
     }
-}*/
+}
 
 app.Run();
