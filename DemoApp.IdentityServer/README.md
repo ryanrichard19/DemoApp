@@ -9,3 +9,5 @@ Commands to build migrations for identity Server
 
 dotnet ef database update - c PersistedGrantDbContextdonet ef database update - c PersistedGrantDbContext
 dotnet ef database update -c ConfigurationDbContext
+
+dotnet ef migrations add InitialAspNetIdentityApplicationDbMigration -c ApplicationDbContext -o Data/Migrations/AspNetIdentity

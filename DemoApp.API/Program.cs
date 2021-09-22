@@ -73,8 +73,6 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<AuthorizeOperationFilter>();
 });
 
-
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
