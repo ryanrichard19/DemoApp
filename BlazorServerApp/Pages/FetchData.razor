@@ -1,9 +1,13 @@
 ﻿@page "/fetchdata"
+@using Microsoft.AspNetCore.Authorization
+@inject TokenProvider TokenProvider
+@attribute [Authorize]
+
 
 <PageTitle>Weather forecast</PageTitle>
 
 @using BlazorServerApp.Data
-@inject WeatherForecastService ForecastService
+@inject WeatherService ForecastService
 
 <h1>Weather forecast</h1>
 

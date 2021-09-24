@@ -1,7 +1,15 @@
 ﻿@page "/api"
+@using Microsoft.AspNetCore.Authorization
+@inject TokenProvider TokenProvider
 @attribute [Authorize]
 <h3>API</h3>
+<p role="status">Access Token: @accessToken</p>
 
 @code {
-
+	private string accessToken = null;
+	
+	protected async override Task OnInitializedAsync()
+	{
+		accessToken = TokenProvider.AccessToken;
+	}
 }

@@ -1,3 +1,4 @@
+using BlazorServerApp;
 using BlazorServerApp.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -8,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddTransient<WeatherService>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<TokenProvider>();
 
 builder.Services.AddAuthentication(options =>
 {
