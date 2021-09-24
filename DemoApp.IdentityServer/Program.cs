@@ -1,12 +1,13 @@
 using DemoApp.IdentityServer.Data;
+using Duende.IdentityServer;
 using Duende.IdentityServer.EntityFramework.DbContexts;
 using Duende.IdentityServer.EntityFramework.Mappers;
 using Duende.IdentityServer.Models;
-using IdentityModel;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
-using System.Security.Claims;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddDefaultUI();
-    
+
 
 builder.Services.AddIdentityServer()
       .AddConfigurationStore(options =>
@@ -75,6 +76,37 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
 {
     using (var configurationDBContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>())
     {
+       /* configurationDBContext.IdentityResources.Add(new IdentityResources.OpenId().ToEntity());
+        configurationDBContext.IdentityResources.Add(new IdentityResources.Profile().ToEntity());
+        configurationDBContext.SaveChanges();
+
+        configurationDBContext.Clients.Add(new Client
+        {
+            ClientId = "web",
+            ClientSecrets = new List<Secret>
+                 {
+                     new Secret("secret".Sha256())
+                 },
+            AllowedGrantTypes = GrantTypes.Code,
+            RedirectUris = new List<string>
+            {
+                "https://localhost:5005/signin-oidc"
+            },
+
+            PostLogoutRedirectUris = new List<string>
+            {
+                "https://localhost:5005/signout-oidc"
+            },
+
+            AllowedScopes = new List<string>
+            {
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile,
+                "api"
+            }
+        }.ToEntity());
+        configurationDBContext.SaveChanges();*/
+
         // To seed test users and claims
         /*using (var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>())
         {

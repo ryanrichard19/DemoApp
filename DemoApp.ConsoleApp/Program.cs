@@ -1,6 +1,8 @@
 ﻿
 // See https://aka.ms/new-console-template for more information
 using IdentityModel.Client;
+using System;
+using System.Net.Http;
 
 TokenResponse tokenResponse;
 using ( var discoveryDocumentHttpClient = new HttpClient())

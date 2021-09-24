@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DemoApp.API.Models
+namespace BlazorServerApp.Data
 {
     public class WeatherForecast
     {
