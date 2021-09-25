@@ -76,36 +76,58 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
 {
     using (var configurationDBContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>())
     {
-       /* configurationDBContext.IdentityResources.Add(new IdentityResources.OpenId().ToEntity());
-        configurationDBContext.IdentityResources.Add(new IdentityResources.Profile().ToEntity());
-        configurationDBContext.SaveChanges();
-
-        configurationDBContext.Clients.Add(new Client
+       /* configurationDBContext.Clients.Add(new Client
         {
-            ClientId = "web",
-            ClientSecrets = new List<Secret>
-                 {
-                     new Secret("secret".Sha256())
-                 },
+            ClientId = "angular",
             AllowedGrantTypes = GrantTypes.Code,
-            RedirectUris = new List<string>
-            {
-                "https://localhost:5005/signin-oidc"
-            },
+            RequireClientSecret = false,
+            AllowOfflineAccess = true,
+          
+            RedirectUris = {"https://localhost:4200"},
+            PostLogoutRedirectUris = { "https://localhost:4200" },
+            AllowedCorsOrigins = { "https://localhost:4200" },
 
-            PostLogoutRedirectUris = new List<string>
-            {
-                "https://localhost:5005/signout-oidc"
-            },
 
             AllowedScopes = new List<string>
             {
                 IdentityServerConstants.StandardScopes.OpenId,
                 IdentityServerConstants.StandardScopes.Profile,
+                IdentityServerConstants.StandardScopes.OfflineAccess,
                 "api"
             }
         }.ToEntity());
         configurationDBContext.SaveChanges();*/
+
+        /* configurationDBContext.IdentityResources.Add(new IdentityResources.OpenId().ToEntity());
+         configurationDBContext.IdentityResources.Add(new IdentityResources.Profile().ToEntity());
+         configurationDBContext.SaveChanges();
+
+         configurationDBContext.Clients.Add(new Client
+         {
+             ClientId = "web",
+             ClientSecrets = new List<Secret>
+                  {
+                      new Secret("secret".Sha256())
+                  },
+             AllowedGrantTypes = GrantTypes.Code,
+             RedirectUris = new List<string>
+             {
+                 "https://localhost:5005/signin-oidc"
+             },
+
+             PostLogoutRedirectUris = new List<string>
+             {
+                 "https://localhost:5005/signout-oidc"
+             },
+
+             AllowedScopes = new List<string>
+             {
+                 IdentityServerConstants.StandardScopes.OpenId,
+                 IdentityServerConstants.StandardScopes.Profile,
+                 "api"
+             }
+         }.ToEntity());
+         configurationDBContext.SaveChanges();*/
 
         // To seed test users and claims
         /*using (var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>())
