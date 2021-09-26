@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp.IdentityServer", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp.ConsoleApp", "DemoApp.ConsoleApp\DemoApp.ConsoleApp.csproj", "{655315BA-4D80-4C89-9AD4-59C25072F7A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerApp", "BlazorServerApp\BlazorServerApp.csproj", "{A4BC4416-2852-4ED9-95B3-567C6E92BDC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerApp", "BlazorServerApp\BlazorServerApp.csproj", "{A4BC4416-2852-4ED9-95B3-567C6E92BDC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWASMApp", "BlazorWASMApp\BlazorWASMApp.csproj", "{CA15380F-56F2-4987-8286-52DA32036C51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A4BC4416-2852-4ED9-95B3-567C6E92BDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4BC4416-2852-4ED9-95B3-567C6E92BDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4BC4416-2852-4ED9-95B3-567C6E92BDC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA15380F-56F2-4987-8286-52DA32036C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA15380F-56F2-4987-8286-52DA32036C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA15380F-56F2-4987-8286-52DA32036C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA15380F-56F2-4987-8286-52DA32036C51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

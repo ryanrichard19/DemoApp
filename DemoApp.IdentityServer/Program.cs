@@ -76,16 +76,16 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
 {
     using (var configurationDBContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>())
     {
-       /* configurationDBContext.Clients.Add(new Client
+        /* configurationDBContext.Clients.Add(new Client
         {
-            ClientId = "angular",
+            ClientId = "blazorwasm",
             AllowedGrantTypes = GrantTypes.Code,
             RequireClientSecret = false,
             AllowOfflineAccess = true,
           
-            RedirectUris = {"https://localhost:4200"},
-            PostLogoutRedirectUris = { "https://localhost:4200" },
-            AllowedCorsOrigins = { "https://localhost:4200" },
+            RedirectUris = { "https://localhost:5005/authentication/login-callback" },
+            PostLogoutRedirectUris = { "https://localhost:5005/authentication/logout-callback" },
+            AllowedCorsOrigins = { "https://localhost:5005" },
 
 
             AllowedScopes = new List<string>
@@ -97,6 +97,28 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
             }
         }.ToEntity());
         configurationDBContext.SaveChanges();*/
+
+        /* configurationDBContext.Clients.Add(new Client
+         {
+             ClientId = "angular",
+             AllowedGrantTypes = GrantTypes.Code,
+             RequireClientSecret = false,
+             AllowOfflineAccess = true,
+
+             RedirectUris = {"https://localhost:4200"},
+             PostLogoutRedirectUris = { "https://localhost:4200" },
+             AllowedCorsOrigins = { "https://localhost:4200" },
+
+
+             AllowedScopes = new List<string>
+             {
+                 IdentityServerConstants.StandardScopes.OpenId,
+                 IdentityServerConstants.StandardScopes.Profile,
+                 IdentityServerConstants.StandardScopes.OfflineAccess,
+                 "api"
+             }
+         }.ToEntity());
+         configurationDBContext.SaveChanges();*/
 
         /* configurationDBContext.IdentityResources.Add(new IdentityResources.OpenId().ToEntity());
          configurationDBContext.IdentityResources.Add(new IdentityResources.Profile().ToEntity());
